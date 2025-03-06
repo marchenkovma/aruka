@@ -34,7 +34,7 @@
 
             <!-- Page Footer -->
             <footer class="py-16 text-center text-sm text-black dark:text-white/70">
-                Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+                {{ __('footer.copyright_notice', ['start_year' => 2019, 'current_year' => date('Y')]) }}
             </footer>
         </div>
     </body>
