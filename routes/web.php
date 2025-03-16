@@ -8,7 +8,7 @@ Route::get('/', function () {
     return view('welcome2');
 })->name('home.index');
 
-Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+Route::resource('/posts', PostController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
