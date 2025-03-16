@@ -9,6 +9,7 @@ use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Database\Factories\CategoryFactory;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -27,7 +28,8 @@ class DatabaseSeeder extends Seeder
         $user = User::create([
             'name' => 'Maksim',
             'email' => 'marchenkovby@gmail.com',
-            'password' => 'v32skpert'
+            'password' => Hash::make('v32skpert'),
+            'email_verified_at' => now(),
         ]);
 
         $categories = Category::factory()
@@ -40,16 +42,14 @@ class DatabaseSeeder extends Seeder
 
         Post::factory()
             ->count(20)
-            ->create(
-                ['user_id' => $user->id]
-            );
+            ->for($user)
+            ->create();
 
         Post::factory()
             ->published()
             ->count(30)
-            ->create(
-                ['user_id' => $user->id]
-            );
+            ->for($user)
+            ->create();
 
         Post::all()
             ->each(function ($post) use ($categories, $tags) {
@@ -58,7 +58,7 @@ class DatabaseSeeder extends Seeder
                     ->attach
                     (
                         $categories
-                            ->random(rand(1, 3))
+                            ->random(rand(1, 2))
                             ->pluck('id')
                             ->toArray()
                     );
@@ -71,6 +71,6 @@ class DatabaseSeeder extends Seeder
                             ->pluck('id')
                             ->toArray()
                     );
-        });
+            });
     }
 }
