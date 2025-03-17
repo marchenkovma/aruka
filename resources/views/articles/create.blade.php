@@ -30,7 +30,7 @@
 
                         <form
                             method="post"
-                            action="{{ route("posts.store") }}"
+                            action="{{ route("articles.store") }}"
                             class="mt-6 space-y-6"
                         >
                             @csrf

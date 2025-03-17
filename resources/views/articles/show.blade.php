@@ -3,7 +3,7 @@
         <h2
             class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200"
         >
-            {{ $post->title }}
+            {{ $article->title }}
         </h2>
     </x-slot>
 
@@ -20,10 +20,10 @@
                             <h1
                                 class="mb-2 text-3xl font-extrabold leading-tight text-gray-900 dark:text-white lg:mb-6 lg:text-4xl"
                             >
-                                {{ $post->title }}
+                                {{ $article->title }}
                             </h1>
                             <div class="mb-4 flex flex-wrap">
-                                @foreach ($post->tags as $tag)
+                                @foreach ($article->tags as $tag)
                                     <a
                                         class="mb-2 mr-2 rounded bg-blue-100 px-2.5 py-0.5 text-sm font-medium text-blue-800 dark:bg-blue-200 dark:text-blue-800"
                                         href="{{-- route("tag", $tag->slug) --}}"
@@ -38,20 +38,20 @@
                                     <a
                                         rel="author"
                                         class="text-gray-900 no-underline hover:underline dark:text-white"
-                                        href="{{-- route("author", $post->author->slug) --}}"
+                                        href="{{-- route("author", $article->author->slug) --}}"
                                     >
-                                        {{-- $post->author->name --}}
+                                        {{-- $article->author->name --}}
                                     </a>
                                 </address>
                                 <time
-                                    datetime="{{-- $post->published_at->toIso8601String() --}}"
+                                    datetime="{{-- $article->published_at->toIso8601String() --}}"
                                 >
-                                    {{-- $post->published_at->diffForHumans() --}}
+                                    {{-- $article->published_at->diffForHumans() --}}
                                 </time>
                             </div>
                         </header>
                         <div>
-                            <p>{{ $post->content }}</p>
+                            <p>{{ $article->content }}</p>
                         </div>
                     </article>
                 </div>

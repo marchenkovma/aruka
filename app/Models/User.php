@@ -47,9 +47,9 @@ class User extends Authenticatable
         ];
     }
 
-    // Связь "один ко многим" с моделью Post
-    public function posts(): hasMany
+    // Связь "один ко многим" с моделью Article
+    public function articles(): hasMany
     {
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Article::class);
     }
 }

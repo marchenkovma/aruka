@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
-use App\Models\Post;
+use App\Models\Article;
 use App\Models\Tag;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -40,18 +40,18 @@ class DatabaseSeeder extends Seeder
             ->count(20)
             ->create();
 
-        Post::factory()
+        Article::factory()
             ->count(20)
             ->for($user)
             ->create();
 
-        Post::factory()
+        Article::factory()
             ->published()
             ->count(30)
             ->for($user)
             ->create();
 
-        Post::all()
+        Article::all()
             ->each(function ($post) use ($categories, $tags) {
                 $post
                     ->categories()

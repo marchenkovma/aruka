@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
+use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
-class PostController extends Controller
+class ArticleController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index(): View
     {
-        $posts = Post::all();
+        $articles = Article::all();
 
-        return view('posts.index', [
-                'posts' => $posts
+        return view('articles.index', [
+                'articles' => $articles
         ]);
     }
 
@@ -25,7 +25,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        return view('articles.create');
     }
 
     /**
@@ -39,10 +39,10 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function show(Article $article)
     {
-        return view('posts.show', [
-            'post' => $post
+        return view('articles.show', [
+            'article' => $article
         ]);
     }
 

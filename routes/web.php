@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -8,7 +8,7 @@ Route::get('/', function () {
     return view('welcome2');
 })->name('home.index');
 
-Route::resource('/posts', PostController::class);
+Route::resource('/articles', ArticleController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

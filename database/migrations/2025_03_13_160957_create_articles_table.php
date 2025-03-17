@@ -14,14 +14,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class)->constrained()->nullOnDelete();
             $table->string('title');
             $table->text('content');
             $table->string('slug')->unique();
-            #$table->foreignIdFor(Category::class)->constrained()->nullOnDelete();
-            #$table->foreignIdFor(Tag::class)->constrained()->nullOnDelete();
             $table->boolean('is_published')->default(false);
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
@@ -33,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('articles');
     }
 };

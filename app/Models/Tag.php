@@ -15,9 +15,9 @@ class Tag extends Model
         'name'
     ];
 
-    // Связь "многие ко многим" с моделью Post
-    public function posts(): belongsToMany
+    // Связь "многие ко многим" с моделью Article
+    public function articles(): belongsToMany
     {
-        return $this->belongsToMany(Post::class);
+        return $this->belongsToMany(Article::class);
     }
 }

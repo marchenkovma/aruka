@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Post extends Model
+class Article extends Model
 {
-    /** @use HasFactory<\Database\Factories\PostFactory> */
+    /** @use HasFactory<\Database\Factories\ArticleFactory> */
     use HasFactory;
 
     protected $fillable = [

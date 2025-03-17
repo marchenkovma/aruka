@@ -14,8 +14,8 @@
             >
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <div class="divide-y divide-gray-200 dark:divide-gray-700">
-                        @foreach ($posts as $post)
-                            <x-post :post="$post" />
+                        @foreach ($articles as $article)
+                            <x-article :$article />
                         @endforeach
                     </div>
                 </div>

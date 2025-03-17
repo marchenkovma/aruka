@@ -1,7 +1,7 @@
 <?php
 
-use App\Models\Category;
-use App\Models\Post;
+use App\Models\Article;
+use App\Models\Tag;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('category_post', function (Blueprint $table) {
+        Schema::create('article_tag', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Post::class);
-            $table->foreignIdFor(Category::class);
+            $table->foreignIdFor(Article::class);
+            $table->foreignIdFor(Tag::class);
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('category_post');
+        Schema::dropIfExists('article_tag');
     }
 };
