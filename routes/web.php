@@ -8,8 +8,6 @@ Route::get('/', function () {
     return view('home.index');
 })->name('home.index');
 
-#Route::resource('/articles', ArticleController::class);
-
 Route::get('articles', [ArticleController::class, 'index'])->name('articles.index');
 Route::post('articles', [ArticleController::class, 'store'])->name('articles.store');
 Route::get('articles/{article}', [ArticleController::class, 'show'])->name('articles.show');
