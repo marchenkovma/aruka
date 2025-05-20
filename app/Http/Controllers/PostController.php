@@ -13,7 +13,6 @@ class PostController extends Controller
      */
     public function index()
     {
-        $categories = Category::get();
         $posts = Post::orderBy('created_at', 'DESC')->simplePaginate(5);
         //$posts = Post::orderBy('created_at', 'DESC')->paginate(5);
 
@@ -24,7 +23,6 @@ class PostController extends Controller
 
         // 2 option
         return view('dashboard', [
-            'categories' => $categories,
             'posts' => $posts,
         ]);
     }
